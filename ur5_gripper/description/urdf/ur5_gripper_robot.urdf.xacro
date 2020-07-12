@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro"
+       name="ur5" >
+
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+  <xacro:arg name="joint_limited" default="false"/>
+
+  <!-- common stuff -->
+  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+
+  <!-- ur5 -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+
+  <!-- robotiq_2f_140_gripper -->  
+  <xacro:include filename="$(find robotiq_2f_140_gripper_visualization)/urdf/robotiq_arg2f_140_model_macro.xacro" />
+
+  <!-- robotiq_ft300-->
+  <xacro:include filename="$(find robotiq_ft_sensor)/urdf/robotiq_ft300.urdf.xacro" />
+  
+  <!-- kinect with plugin-->
+  <xacro:include filename="$(find kinect_description)/urdf/kinect_plugin.urdf.xacro" />
+
+  <xacro:include filename="$(find robotiq_2f_140_gripper_visualization)/urdf/grasp_plugin.xacro" />
+
+  <!-- arm -->
+  <xacro:ur5_robot prefix="" joint_limited="$(arg joint_limited)"
+    shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+    shoulder_lift_lower_limit="${-pi}" shoulder_lift_upper_limit="${pi}"
+    elbow_joint_lower_limit="${-pi}" elbow_joint_upper_limit="${pi}"
+    wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="${pi}"
+    wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}"
+    wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+  />
+  <!-- gripper -->
+  <xacro:robotiq_arg2f_140 prefix=""/>
+
+
+  <link name="world" />
+
+  <xacro:kinect xyz="0 1.5 1.1" rpy="0 0.3 -1.5" parent_frame="world" />
+  
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 1.1" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <!-- sensor -->
+  <xacro:robotiq_ft300 parent="tool0" prefix="">
+		<origin xyz="0 0 0" rpy="0 0 0"/> 
+	</xacro:robotiq_ft300>
+
+  <joint name="end_effector_joint" type="fixed">
+    <parent link="robotiq_ft_frame_id" />
+    <child link = "robotiq_arg2f_base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+</robot>

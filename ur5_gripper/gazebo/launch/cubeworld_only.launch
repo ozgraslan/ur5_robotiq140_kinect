@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- startup simulated world--> 
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="$(find ur_gazebo)/cubeworld.world"/>
+    <arg name="paused" value="false"/>
+  </include>
+
+
+</launch> 
