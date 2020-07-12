@@ -1,6 +1,6 @@
 # ur5_robotiq140_kinect
 
-Works on Ubuntu 18.04 and ROs-Melodic.
+Works on Ubuntu 18.04 and ROS-Melodic.
 
 How to install:
 
