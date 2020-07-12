@@ -9,14 +9,14 @@
   
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" default="$(find ur_gazebo)/cubeworld.world"/>
+    <arg name="world_name" default="$(find ur5_gripper)/world/cubeworld.world"/>
     <arg name="paused" value="$(arg paused)"/>
     <arg name="gui" value="$(arg gui)"/>
   </include>
 
   
   <!-- send robot urdf to param server -->
-  <include file="$(find ur_description)/launch/ur5_gripper_upload.launch">
+  <include file="$(find ur5_gripper)/description/launch/ur5_gripper_upload.launch">
     <arg name="limited" value="$(arg limited)"/>
   </include>
 

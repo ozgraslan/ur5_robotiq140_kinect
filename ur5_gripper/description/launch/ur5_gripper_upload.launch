@@ -3,5 +3,5 @@
   <arg name="limited" default="false" doc="If true, limits joint range [-PI, PI] on all joints." />
   <arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface" />
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur_description)/urdf/ur5_gripper_robot.urdf.xacro' transmission_hw_interface:=$(arg transmission_hw_interface) joint_limited:=$(arg limited)" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find ur5_gripper)/description/urdf/ur5_gripper_robot.urdf.xacro' transmission_hw_interface:=$(arg transmission_hw_interface) joint_limited:=$(arg limited)" />
 </launch>
