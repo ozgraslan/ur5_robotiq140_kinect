@@ -1,0 +1,39 @@
+requirements:
+  packages:
+    - https://github.com/ros-planning/moveit_msgs.git
+    - https://github.com/ros-planning/geometric_shapes.git
+    - https://github.com/ros-planning/moveit.git
+    - https://github.com/ros-industrial/universal_robot.git
+    - https://github.com/ozgraslan/robotiq.git
+    - https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins.git
+    - https://github.com/ozgraslan/gazebo-pkgs.git
+    - https://github.com/JenniferBuehler/general-message-pkgs.git
+    - https://github.com/RobotRose/kinect_description.git
+    - https://github.com/ozgraslan/ur5_robotiq140_kinect.git
+    # not sure we need these packages
+    #  - https://github.com/PickNikRobotics/rviz_visual_tools    
+    #  - https://github.com/ros-planning/moveit_visual_tools.git
+    #  - https://github.com/ros-industrial/industrial_core.git
+    #  - https://github.com/ros-industrial/ur_modern_driver.git
+    
+
+resources:
+  robot_models:
+    model1:
+      package: ur5_gripper
+      urdf: description/urdf/ur5_gripper_robot.urdf.xacro
+  worlds:
+    stage3:
+      package: ur5_gripper
+      world_file: worlds/cubeworld.world
+runtime:
+  nodes:
+  robots:
+    robot1:
+      model: model1
+      properties:
+        Y: 0
+        x: 0
+        y: 0
+        z: 1.10
+  world: stage3
