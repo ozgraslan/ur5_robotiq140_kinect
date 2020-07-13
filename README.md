@@ -1,6 +1,6 @@
 # ur5_robotiq140_kinect
 
-Works on Ubuntu 18.04 and ROS-Melodic.
+Works on Ubuntu 18.04 with ROS-Melodic & Gazebo 9.0.0 and Ubuntu 16.04 with ROS-Kinetic & Gazebo 7.16.
 
 How to install:
 
