@@ -38,7 +38,7 @@
 
   <link name="world" />
 
-  <xacro:kinect xyz="0 1.5 1.1" rpy="0 0.3 -1.5" parent_frame="world" />
+  <xacro:kinect xyz="0 1.7 1.0" rpy="0 0.0 -1.5" parent_frame="world" />
   
   <joint name="world_joint" type="fixed">
     <parent link="world" />

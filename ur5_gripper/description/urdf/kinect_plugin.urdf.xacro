@@ -11,7 +11,7 @@
   
   <gazebo reference="${link_name}">
     <sensor name="${link_name}_camera" type="depth">
-      <update_rate>1</update_rate>
+      <update_rate>10</update_rate>
       <camera>
         <horizontal_fov>1.047198</horizontal_fov>
         <image>
@@ -27,7 +27,7 @@
       <plugin name="${link_name}_controller" filename="libgazebo_ros_openni_kinect.so">
         <baseline>0.2</baseline>
         <alwaysOn>true</alwaysOn>
-        <updateRate>1</updateRate>
+        <updateRate>10</updateRate>
         <cameraName>${camera_name}_ir</cameraName>
         <imageTopicName>/${camera_name}/color/image_raw</imageTopicName>
         <cameraInfoTopicName>/${camera_name}/color/camera_info</cameraInfoTopicName>

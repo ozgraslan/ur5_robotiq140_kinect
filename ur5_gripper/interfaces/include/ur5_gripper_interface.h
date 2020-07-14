@@ -16,7 +16,17 @@
 #include <boost/scoped_ptr.hpp>
 
 class UR5GripperInterface{
-    UR5GripperInterface(std::string planning_group)
+
+private:
+    moveit::planning_interface::MoveGroupInterface arm_group;
+    moveit::planning_interface::MoveGroupInterface gripper_group;
+    moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
+    const moveit::core::JointModelGroup* joint_model_group;
+public:
+    UR5GripperInterface(std::string arm_group_name, std::string gripper_group_name);
+    ~UR5GripperInterface();
+    //pose w, x, y, z
+    go_pose(std::vector<float> pose);
 
 }
 
