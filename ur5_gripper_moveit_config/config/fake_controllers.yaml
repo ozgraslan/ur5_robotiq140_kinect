@@ -7,7 +7,7 @@ controller_list:
       - wrist_1_joint
       - wrist_2_joint
       - wrist_3_joint
-  - name: fake_robotiq140_gripper_controller
+  - name: fake_robotiq140gripper_controller
     joints:
       - finger_joint
 initial:  # Define initial robot poses.
