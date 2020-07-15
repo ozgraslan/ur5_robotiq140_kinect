@@ -1,6 +1,6 @@
 requirements:
   packages:
-    - https://github.com/ros-industrial/universal_robot.git
+    - https://github.com/ozgraslan/universal_robot.git
     - https://github.com/ozgraslan/robotiq.git
     - https://github.com/RobotRose/kinect_description.git
     - https://github.com/ozgraslan/ur5_robotiq140_kinect.git

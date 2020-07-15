@@ -50,10 +50,6 @@
             </plane>
           </geometry>
           <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
           </material>
         </visual>
         <self_collide>0</self_collide>
@@ -159,10 +155,6 @@
           </geometry>
           <material>
             <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <shader type='vertex'>
               <normal_map>__default__</normal_map>
             </shader>
@@ -263,10 +255,6 @@
           </geometry>
           <material>
             <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
             <shader type='vertex'>
               <normal_map>__default__</normal_map>
             </shader>
