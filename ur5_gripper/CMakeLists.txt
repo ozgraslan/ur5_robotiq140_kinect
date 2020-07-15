@@ -1,4 +1,4 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(ur5_gripper)
-find_package(catkin REQUIRED ur_description ur_gazebo kinect_description robotiq_2f_140_gripper_visualization robotiq_ft_sensor roboticsgroup_gazebo_plugins gazebo_grasp_plugin)
+find_package(catkin REQUIRED ur_description ur_gazebo kinect_description robotiq_2f_140_gripper_visualization robotiq_ft_sensor roboticsgroup_gazebo_plugins)
 catkin_package()
