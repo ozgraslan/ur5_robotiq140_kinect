@@ -20,7 +20,7 @@
   <!-- kinect with plugin -->
   <xacro:include filename="$(find ur5_gripper)/description/urdf/kinect_plugin.urdf.xacro" />
 
-  <xacro:include filename="$(find robotiq_2f_140_gripper_visualization)/urdf/robotiq140_plugin.xacro" />
+<!--  <xacro:include filename="$(find robotiq_2f_140_gripper_visualization)/urdf/robotiq140_plugin.xacro" /> -->
 
   <!-- arm -->
   <xacro:ur5_robot prefix="" joint_limited="$(arg joint_limited)"
