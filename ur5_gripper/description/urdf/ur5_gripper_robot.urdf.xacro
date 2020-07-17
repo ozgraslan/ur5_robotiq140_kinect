@@ -35,7 +35,11 @@
   <!-- gripper -->
   <xacro:robotiq_arg2f_140 prefix=""/>
 
-
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0.0 0.0 1.1" rpy="0.0 0.0 0.0" />
+  </joint>
 
 
   <!--xacro:kinect xyz="0 1.7 0.4" rpy="0 0.0 -1.5" parent_frame="base_link" /--> 
