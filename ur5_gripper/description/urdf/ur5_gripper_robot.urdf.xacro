@@ -18,7 +18,7 @@
   <xacro:include filename="$(find robotiq_ft_sensor)/urdf/robotiq_ft300.urdf.xacro" />
   
   <!-- kinect with plugin -->
-  <xacro:include filename="$(find ur5_gripper)/description/urdf/kinect_plugin.urdf.xacro" />
+  <!--xacro:include filename="$(find ur5_gripper)/description/urdf/kinect_plugin.urdf.xacro" /-->
 
 <!--  <xacro:include filename="$(find robotiq_2f_140_gripper_visualization)/urdf/robotiq140_plugin.xacro" /> -->
 
