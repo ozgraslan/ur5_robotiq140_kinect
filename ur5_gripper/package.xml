@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
     <name>ur5_gripper</name>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <description>
     This package provides an implementation of ur5 robot with robotiq_ar2f_140 gripper and kinect.
     </description>
@@ -13,6 +13,4 @@
     <build_depend>kinect_description</build_depend>
     <build_depend>robotiq_2f_140_gripper_visualization</build_depend>
     <build_depend>robotiq_ft_sensor</build_depend>
-    <build_depend>roboticsgroup_gazebo_plugins</build_depend>
-    <build_depend>gazebo_grasp_plugin</build_depend>
 </package>
