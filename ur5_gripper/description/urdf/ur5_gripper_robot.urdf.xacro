@@ -36,15 +36,10 @@
   <xacro:robotiq_arg2f_140 prefix=""/>
 
 
-  <link name="world" />
 
-  <xacro:kinect xyz="0 1.7 1.0" rpy="0 0.0 -1.5" parent_frame="world" /> 
+
+  <xacro:kinect xyz="0 1.7 0.4" rpy="0 0.0 -1.5" parent_frame="base_link" /> 
   
-  <joint name="world_joint" type="fixed">
-    <parent link="world" />
-    <child link = "base_link" />
-    <origin xyz="0.0 0.0 1.1" rpy="0.0 0.0 0.0" />
-  </joint>
 
   <!-- sensor -->
   <xacro:robotiq_ft300 parent="tool0" prefix="">

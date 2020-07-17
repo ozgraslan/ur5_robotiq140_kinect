@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
     <name>ur5_gripper</name>
-    <version>0.0.2</version>
+    <version>0.0.1</version>
     <description>
     This package provides an implementation of ur5 robot with robotiq_ar2f_140 gripper and kinect.
     </description>
