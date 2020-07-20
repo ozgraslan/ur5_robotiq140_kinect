@@ -10,7 +10,7 @@
     <buildtool_depend>catkin</buildtool_depend>
     <build_depend>ur_description</build_depend>
     <build_depend>ur_gazebo</build_depend>
-    <build_depend>kinect_description</build_depend>
+    <build_depend>common_sensors</build_depend>
     <build_depend>robotiq_2f_140_gripper_visualization</build_depend>
     <build_depend>robotiq_ft_sensor</build_depend>
     <build_depend>roboticsgroup_gazebo_plugins</build_depend>
