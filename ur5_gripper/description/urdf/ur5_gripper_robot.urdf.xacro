@@ -18,7 +18,7 @@
   <xacro:include filename="$(find robotiq_ft_sensor)/urdf/robotiq_ft300.urdf.xacro" />
   
   <!-- kinect with plugin-->
-  <xacro:include filename="$(find ur5_gripper)/description/urdf/kinect_plugin.urdf.xacro" />
+  <xacro:include filename="$(find common_sensors)/urdf/sensors/kinect2.urdf.xacro" />
 
   <xacro:include filename="$(find robotiq_2f_140_gripper_visualization)/urdf/robotiq140_plugin.xacro" />
 
@@ -38,8 +38,14 @@
 
   <link name="world" />
 
-  <xacro:kinect xyz="0 1.7 1.0" rpy="0 0.0 -1.5" parent_frame="world" />
-  
+  <xacro:kinect2  parent="world" name="kinectv2_1" >
+    <origin xyz="0 1.7 1.0" rpy="0 0.0 -1.5" />
+  </xacro:kinect2>
+
+  <xacro:kinect2  parent="world" name="kinectv2_2" >
+    <origin xyz="0 0 0.7" rpy="0.0 0.0 1.5" />
+  </xacro:kinect2>
+
   <joint name="world_joint" type="fixed">
     <parent link="world" />
     <child link = "base_link" />

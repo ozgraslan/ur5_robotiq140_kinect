@@ -1,0 +1,19 @@
+<launch>
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <arg name="name" default="kinectv2"/>
+  <arg name="xyz" default="0.0 0.0 1.1"/>
+  <arg name="rpy" default="0.0 0.0 -1.5"/>
+  <arg name="parent" default="world"/>
+  <arg name="namespace_arg" default=""/>
+
+
+  <!-- send the robot XML to param server -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find common_sensors)/urdf/sample_robots/kinectv2.urdf.xacro' name:='$(arg name)' xyz:='$(arg xyz)' rpy:='$(arg rpy)' parent:='$(arg parent)'" />
+  <param name="tf_prefix" value="$(arg namespace_arg)" />
+  <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
+        args="-param robot_description
+              -urdf
+              -model $(arg name)"
+        respawn="false" output="screen">
+  </node>
+</launch>

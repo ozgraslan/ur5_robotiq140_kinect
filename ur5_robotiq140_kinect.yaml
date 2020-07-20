@@ -4,22 +4,12 @@ requirements:
     - https://github.com/ozgraslan/robotiq.git
     - https://github.com/RobotRose/kinect_description.git
     - https://github.com/ozgraslan/ur5_robotiq140_kinect.git
-resources:
-  robot_models:
-    ur5_gripper:
-      package: ur5_gripper
-      urdf: description/urdf/ur5_gripper_robot.urdf.xacro
-  worlds:
-    cubeworld:
-      package: ur5_gripper
-      world_file: world/cubeworld2.world
 runtime:
-  robots:
-    robot1:
-      model: ur5_gripper
-      properties:
-        Y: 0
-        x: 0
-        y: 0
-        z: 1.10
-  world: cubeworld
+  launch:
+    args:
+      gui: 'false'
+      limited: 'true'
+      paused: 'true'
+    on_reset: rosservice call /gazebo/reset_world; 
+    package: ur5_gripper
+    path: ur5_gripper.launch
