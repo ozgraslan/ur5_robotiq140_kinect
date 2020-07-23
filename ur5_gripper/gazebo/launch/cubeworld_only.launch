@@ -3,7 +3,7 @@
 
   <!-- startup simulated world--> 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" default="$(find ur5_gripper)/world/cubeworld.world"/>
+    <arg name="world_name" default="$(find ur5_gripper)/world/cubeworld2.world"/>
     <arg name="paused" value="false"/>
   </include>
 

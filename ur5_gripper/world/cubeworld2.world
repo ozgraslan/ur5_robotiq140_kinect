@@ -86,26 +86,66 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <state world_name='default'>
-      <sim_time>1062 856000000</sim_time>
-      <real_time>244 70050353</real_time>
-      <wall_time>1594753892 935410641</wall_time>
-      <iterations>241874</iterations>
+      <sim_time>2297 488000000</sim_time>
+      <real_time>1101 971614624</real_time>
+      <wall_time>1595328764 549351666</wall_time>
+      <iterations>1088495</iterations>
       <model name='cafe_box'>
         <pose frame=''>0.000211 0.499807 0.358622 -0.000217 2.7e-05 -1.5e-05</pose>
         <scale>1 1 1</scale>
         <link name='link_1'>
           <pose frame=''>0.000211 0.499807 0.358622 -0.000217 2.7e-05 -1.5e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.413375 0.365854 -29.3689 1.51621 1.39339 0.003778</acceleration>
-          <wrench>-0.413375 0.365854 -29.3689 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='cylinder'>
-        <pose frame=''>0.000161 0.500639 0.808608 4.2e-05 0.000172 -0.014234</pose>
+      <model name='chair_ivar_part0'>
+        <pose frame=''>-0.240275 0.541852 0.771002 -0.00129 1.57058 -1.68211</pose>
         <scale>1 1 1</scale>
-        <link name='link_2'>
-          <pose frame=''>0.000161 0.500639 0.808608 4.2e-05 0.000172 -0.014234</pose>
+        <link name='mesh_link0'>
+          <pose frame=''>-0.240275 0.541852 0.771002 -0.00129 1.57058 -1.68211</pose>
           <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='chair_ivar_part1'>
+        <pose frame=''>0.303283 0.710534 0.770941 -1.68626 1.57058 -1.69823</pose>
+        <scale>1 1 1</scale>
+        <link name='mesh_link1'>
+          <pose frame=''>0.303283 0.710534 0.770941 -1.68626 1.57058 -1.69823</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='chair_ivar_part2'>
+        <pose frame=''>0.199581 0.211428 0.772422 -1.4902 0.037611 0.098629</pose>
+        <scale>1 1 1</scale>
+        <link name='mesh_link2'>
+          <pose frame=''>0.199581 0.211428 0.772422 -1.4902 0.037611 0.098629</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='chair_ivar_part3'>
+        <pose frame=''>0.300824 0.172032 0.773436 1.5662 4.2e-05 0.071909</pose>
+        <scale>1 1 1</scale>
+        <link name='mesh_link3'>
+          <pose frame=''>0.300824 0.172032 0.773436 1.5662 4.2e-05 0.071909</pose>
+          <velocity>0.000158 -0.002232 -0.011101 0.151136 0.010729 -6e-06</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='chair_ivar_part4'>
+        <pose frame=''>0.707026 0.408463 0.784005 0.004306 -2.1e-05 -0.181346</pose>
+        <scale>1 1 1</scale>
+        <link name='chair_ivar_part4::mesh_link4'>
+          <pose frame=''>0.707026 0.408463 0.784005 0.004306 -2.1e-05 -0.181346</pose>
+          <velocity>-0.001005 -0.005485 0.021287 0.216781 -0.039747 -3e-06</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
@@ -126,7 +166,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-0.3814 2.63263 1.66964 0 0.269796 -1.67557</pose>
+        <pose frame=''>0.391366 3.08107 2.97651 0 0.649001 -1.75711</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -234,110 +274,246 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose frame=''>1 0.5 0.4 0 -0 0</pose>
     </model>
-    <model name='cylinder'>
-      <link name='link_2'>
-        <inertial>
-          <mass>1</mass>
-          <inertia>
-            <ixx>0.145833</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>0.145833</iyy>
-            <iyz>0</iyz>
-            <izz>0.125</izz>
-          </inertia>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-        </inertial>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <gravity>1</gravity>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <enable_wind>0</enable_wind>
-        <visual name='visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
+    <model name='chair_ivar_part0'>
+      <link name='mesh_link0'>
+        <visual name='visual0'>
           <geometry>
-            <cylinder>
-              <radius>0.05</radius>
-              <length>0.1</length>
-            </cylinder>
+            <mesh>
+              <uri>model://ivar_chair/meshes/0.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
           </geometry>
-          <material>
-            <lighting>1</lighting>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-            <shader type='vertex'>
-              <normal_map>__default__</normal_map>
-            </shader>
-            <ambient>0.3 0.3 0.3 1</ambient>
-            <diffuse>0.7 0.7 0.7 1</diffuse>
-            <specular>0.01 0.01 0.01 1</specular>
-            <emissive>0 0 0 1</emissive>
-          </material>
-          <transparency>0</transparency>
-          <cast_shadows>1</cast_shadows>
         </visual>
-        <collision name='collision'>
-          <laser_retro>0</laser_retro>
-          <max_contacts>10</max_contacts>
-          <pose frame=''>0 0 0 0 -0 0</pose>
+        <collision name='collision0'>
           <geometry>
-            <cylinder>
-              <radius>0.05</radius>
-              <length>0.1</length>
-            </cylinder>
+            <mesh>
+              <uri>model://ivar_chair/meshes/0.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
           </geometry>
+          <max_contacts>10</max_contacts>
           <surface>
-            <friction>
-              <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
-                <fdir1>0 0 0</fdir1>
-                <slip1>0</slip1>
-                <slip2>0</slip2>
-              </ode>
-              <torsional>
-                <coefficient>1</coefficient>
-                <patch_radius>0</patch_radius>
-                <surface_radius>0</surface_radius>
-                <use_patch_radius>1</use_patch_radius>
-                <ode>
-                  <slip>0</slip>
-                </ode>
-              </torsional>
-            </friction>
-            <bounce>
-              <restitution_coefficient>0</restitution_coefficient>
-              <threshold>1e+06</threshold>
-            </bounce>
             <contact>
-              <collide_without_contact>0</collide_without_contact>
-              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
-              <collide_bitmask>1</collide_bitmask>
-              <ode>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-                <max_vel>0.01</max_vel>
-                <min_depth>0</min_depth>
-              </ode>
-              <bullet>
-                <split_impulse>1</split_impulse>
-                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
-                <soft_cfm>0</soft_cfm>
-                <soft_erp>0.2</soft_erp>
-                <kp>1e+13</kp>
-                <kd>1</kd>
-              </bullet>
+              <ode/>
             </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
           </surface>
         </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
       </link>
-      <static>0</static>
-      <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>0 0.5 2 0 -0 0</pose>
+      <pose frame=''>2.64439 -4.20355 0 0 -0 0</pose>
+    </model>
+    <model name='chair_ivar_part1'>
+      <link name='mesh_link1'>
+        <visual name='visual1'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/1.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision1'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/1.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-1.81247 -1.57696 0 0 -0 0</pose>
+    </model>
+    <model name='chair_ivar_part2'>
+      <link name='mesh_link2'>
+        <visual name='visual2'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/2.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision2'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/2.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.527403 0.23189 0 0 -0 0</pose>
+    </model>
+    <model name='chair_ivar_part3'>
+      <link name='mesh_link3'>
+        <visual name='visual3'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/3.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision3'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/3.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>0.610144 -1.08788 0 0 -0 0</pose>
+      <enable_wind>0</enable_wind>
+    </model>
+    <model name='chair_ivar_part4'>
+      <link name='chair_ivar_part4::mesh_link4'>
+        <visual name='visual4'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/4.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision4'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/4.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>1.07415 -1.75299 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>

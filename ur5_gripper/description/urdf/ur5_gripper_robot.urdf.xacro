@@ -39,11 +39,15 @@
   <link name="world" />
 
   <xacro:kinect2  parent="world" name="kinectv2_1" >
-    <origin xyz="0 1.7 1.0" rpy="0 0.0 -1.5" />
+    <origin xyz="1.5 0.6 1.0" rpy="0.0 0.30 3.0" />
   </xacro:kinect2>
 
   <xacro:kinect2  parent="world" name="kinectv2_2" >
-    <origin xyz="0 0 0.7" rpy="0.0 0.0 1.5" />
+    <origin xyz="-0.7 0 1.0" rpy="0 0.15 1.5" />
+  </xacro:kinect2>
+
+  <xacro:kinect2  parent="world" name="kinectv2_3" >
+    <origin xyz="1.4 0.0 1.6" rpy="0.0 0.8 2.70" />
   </xacro:kinect2>
 
   <joint name="world_joint" type="fixed">

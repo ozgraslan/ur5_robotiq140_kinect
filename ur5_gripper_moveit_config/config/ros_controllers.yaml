@@ -40,9 +40,3 @@ controller_list:
     default: true
     joints:
       - finger_joint
-    gains:
-      finger_joint:
-        p: 100
-        d: 0.1
-        i: 0
-        i_clamp: 0.2

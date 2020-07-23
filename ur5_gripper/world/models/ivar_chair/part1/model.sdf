@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+<sdf version="1.4">
+  <model name="chair_ivar_part1">
+    <link name="mesh_link1">
+      <visual name="visual1">
+        <geometry>
+          <mesh>
+            <uri>model://ivar_chair/meshes/1.stl</uri>
+            <scale>0.00065 0.00065 0.00065</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="collision1">
+        <geometry>
+          <mesh>
+            <uri>model://ivar_chair/meshes/1.stl</uri>
+            <scale>0.00065 0.00065 0.00065</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

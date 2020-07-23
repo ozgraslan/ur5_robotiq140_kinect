@@ -1,0 +1,2460 @@
+<sdf version='1.6'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics name='default_physics' default='0' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <audio>
+      <device>default</device>
+    </audio>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <state world_name='default'>
+      <sim_time>2707 137000000</sim_time>
+      <real_time>568 959339667</real_time>
+      <wall_time>1595401532 92313679</wall_time>
+      <iterations>409649</iterations>
+      <model name='cafe_box'>
+        <pose frame=''>0.000211 0.9 0.358622 -0.000216 2.8e-05 -1.4e-05</pose>
+        <scale>1 1 1</scale>
+        <link name='link_1'>
+          <pose frame=''>0.000211 0.9 0.358622 -0.000216 2.8e-05 -1.4e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='chair_ivar_part0'>
+        <pose frame=''>-0.242324 0.800054 0.771033 -0.004075 1.57058 -1.68339</pose>
+        <scale>1 1 1</scale>
+        <link name='mesh_link0'>
+          <pose frame=''>-0.242324 0.800054 0.771033 -0.004075 1.57058 -1.68339</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.010694 0.00934 0.723902 -0.741697 0.86117 -0.000215</acceleration>
+          <wrench>0.010694 0.00934 0.723902 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='chair_ivar_part1'>
+        <pose frame=''>0.297132 0.699882 0.77104 -1.71022 1.57058 -1.72396</pose>
+        <scale>1 1 1</scale>
+        <link name='mesh_link1'>
+          <pose frame=''>0.297132 0.699882 0.77104 -1.71022 1.57058 -1.72396</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.006955 0.019681 -0.662519 -1.60904 0.557989 2.3e-05</acceleration>
+          <wrench>0.006955 0.019681 -0.662519 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='chair_ivar_part2'>
+        <pose frame=''>0.201006 0.497984 0.771807 -1.41153 0.054853 -0.05274</pose>
+        <scale>1 1 1</scale>
+        <link name='mesh_link2'>
+          <pose frame=''>0.201006 0.497984 0.771807 -1.41153 0.054853 -0.05274</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='chair_ivar_part3'>
+        <pose frame=''>0.301125 0.9002 0.772028 1.75948 4.3e-05 0.070332</pose>
+        <scale>1 1 1</scale>
+        <link name='mesh_link3'>
+          <pose frame=''>0.301125 0.9002 0.772028 1.75948 4.3e-05 0.070332</pose>
+          <velocity>2.1e-05 -0.000299 -0.003734 0.022363 0.001548 -1e-06</velocity>
+          <acceleration>0 0 -9.8 0 -0 0</acceleration>
+          <wrench>0 0 -9.8 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='chair_ivar_part4'>
+        <pose frame=''>0.740163 1.02037 0.783348 3.14144 -5.6e-05 -0.388339</pose>
+        <scale>1 1 1</scale>
+        <link name='chair_ivar_part4::mesh_link4'>
+          <pose frame=''>0.740163 1.02037 0.783348 3.14144 -5.6e-05 -0.388339</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.026235 0.09593 18.9903 2.481 1.05654 0.000511</acceleration>
+          <wrench>0.026235 0.09593 18.9903 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='ground_plane'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='robot'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='base_link'>
+          <pose frame=''>0 0 1.1 3.6e-05 -0.000164 0</pose>
+          <velocity>3e-06 -1e-06 0 -4.7e-05 1.6e-05 -0.000652</velocity>
+          <acceleration>0.001536 -0.000684 0.000626 -0.000775 0.015065 -0.169108</acceleration>
+          <wrench>0.006142 -0.002736 0.002503 0 -0 0</wrench>
+        </link>
+        <link name='forearm_link'>
+          <pose frame=''>0.424938 0.016089 1.1827 -3.13415 1.55575 -3.13428</pose>
+          <velocity>-0.000206 0.001393 -0.019942 0.000214 0.046498 0.00303</velocity>
+          <acceleration>-0.007011 0.670683 -0.006403 -0.129725 -0.001237 0.155221</acceleration>
+          <wrench>-0.015949 1.52581 -0.014567 0 -0 0</wrench>
+        </link>
+        <link name='kinectv2_1_kinect2_link'>
+          <pose frame=''>1.1 0.5 1 0 0.15 3</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -0 0 -0 0</acceleration>
+          <wrench>0 0 -0 0 -0 0</wrench>
+        </link>
+        <link name='kinectv2_2_kinect2_link'>
+          <pose frame=''>-0.5 -0 1 0 0.15 1.5</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -0 0 -0 0</acceleration>
+          <wrench>0 0 -0 0 -0 0</wrench>
+        </link>
+        <link name='kinectv2_3_kinect2_link'>
+          <pose frame=''>1.4 0 1.6 0 0.3 2.1</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 -0 0 -0 0</acceleration>
+          <wrench>0 0 -0 0 -0 0</wrench>
+        </link>
+        <link name='left_inner_finger'>
+          <pose frame=''>0.720288 0.363969 1.08356 -0.010492 -1.55411 0.010845</pose>
+          <velocity>0.003966 0.011255 -0.032928 -0.001431 0.04173 -0.146607</velocity>
+          <acceleration>2.12509 11.0212 -0.181039 -0.71023 -1.06635 -2.25481</acceleration>
+          <wrench>0.23461 1.21674 -0.019987 0 -0 0</wrench>
+        </link>
+        <link name='left_inner_knuckle'>
+          <pose frame=''>0.802856 0.294229 1.08229 0.714046 -1.55503 0.010579</pose>
+          <velocity>-0.00615 0.002746 -0.03715 -0.024511 0.04939 -1.61056</velocity>
+          <acceleration>14.0516 12.5137 -0.168112 -2.94597 -0.978727 1.49189</acceleration>
+          <wrench>0.381047 0.339343 -0.004559 0 -0 0</wrench>
+        </link>
+        <link name='left_outer_knuckle'>
+          <pose frame=''>0.784961 0.287702 1.08256 0.701631 -1.55474 0.023938</pose>
+          <velocity>-0.005973 0.002916 -0.036125 0.000563 0.047417 -0.130036</velocity>
+          <acceleration>4.11507 5.68343 -0.045314 -1.91935 -0.901559 -1.55263</acceleration>
+          <wrench>0.128169 0.177017 -0.001411 0 -0 0</wrench>
+        </link>
+        <link name='right_inner_finger'>
+          <pose frame=''>0.910677 0.364132 1.08054 -3.13247 1.5558 -3.13023</pose>
+          <velocity>0.080084 -0.069812 -0.043356 0.02433 0.062073 1.66613</velocity>
+          <acceleration>2.44885 -57.6818 -0.411369 -1.32974 0.149076 2.07049</acceleration>
+          <wrench>0.270353 -6.36807 -0.045415 0 -0 0</wrench>
+        </link>
+        <link name='right_inner_knuckle'>
+          <pose frame=''>0.828253 0.294243 1.08189 -2.40803 1.55486 -3.13138</pose>
+          <velocity>-0.006096 0.002806 -0.038409 0.021482 0.049099 1.29802</velocity>
+          <acceleration>5.06818 -2.37458 0.055983 1.1485 1.23633 -2.17322</acceleration>
+          <wrench>0.137437 -0.064393 0.001518 0 -0 0</wrench>
+        </link>
+        <link name='right_outer_knuckle'>
+          <pose frame=''>0.846155 0.287738 1.0816 -2.41056 1.55486 -3.13416</pose>
+          <velocity>-0.006068 0.002875 -0.039187 -0.018032 0.047075 -1.12916</velocity>
+          <acceleration>15.1606 -19.0772 -0.180579 -2.02211 -0.232552 -2.45006</acceleration>
+          <wrench>0.472196 -0.594181 -0.005624 0 -0 0</wrench>
+        </link>
+        <link name='shoulder_link'>
+          <pose frame=''>-1.5e-05 -4e-06 1.18916 -6.7e-05 0.00031 -0.000134</pose>
+          <velocity>-8.1e-05 3.4e-05 -0 -4.9e-05 -0.000407 0.000486</velocity>
+          <acceleration>-0.037962 0.017428 -0.000783 -0.078027 -0.209066 0.430125</acceleration>
+          <wrench>-0.14046 0.064482 -0.002897 0 -0 0</wrench>
+        </link>
+        <link name='upper_arm_link'>
+          <pose frame=''>3e-06 0.135846 1.18914 -3.13256 1.55562 -3.13269</pose>
+          <velocity>-0.000266 5.3e-05 -1.4e-05 0.000135 0.046809 0.003058</velocity>
+          <acceleration>-0.134362 0.331854 -0.025442 -0.998978 -0.014067 0.087791</acceleration>
+          <wrench>-1.1277 2.78525 -0.213531 0 -0 0</wrench>
+        </link>
+        <link name='wrist_1_link'>
+          <pose frame=''>0.817142 0.016036 1.17678 -3.14145 -0.015773 3.14145</pose>
+          <velocity>-0.000511 0.002599 -0.03812 0.000395 0.04898 0.003041</velocity>
+          <acceleration>0.343839 0.920253 0.037814 0.117024 0.297079 2.50655</acceleration>
+          <wrench>0.41914 1.12179 0.046095 0 -0 0</wrench>
+        </link>
+        <link name='wrist_2_link'>
+          <pose frame=''>0.817154 0.109032 1.17677 -3.14144 -0.015777 -3.14103</pose>
+          <velocity>-0.000827 0.002661 -0.038085 0.000786 0.049161 0.003601</velocity>
+          <acceleration>0.604255 1.01646 0.030105 0.453846 -0.824444 0.677757</acceleration>
+          <wrench>0.736587 1.23907 0.036698 0 -0 0</wrench>
+        </link>
+        <link name='wrist_3_link'>
+          <pose frame=''>0.81566 0.109016 1.08212 -3.14142 -0.015834 -3.14103</pose>
+          <velocity>-0.00545 0.002736 -0.037966 0.000892 0.04928 0.00352</velocity>
+          <acceleration>1.43615 1.02409 0.043819 -2.68602 -1.44649 1.9528</acceleration>
+          <wrench>1.02602 0.73163 0.031305 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose frame=''>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>-0.344007 3.0024 2.33283 0 0.365001 -1.6731</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+    <model name='cafe_box'>
+      <link name='link_1'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+        </inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <gravity>1</gravity>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <enable_wind>0</enable_wind>
+        <visual name='visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 1 0.8</size>
+            </box>
+          </geometry>
+          <material>
+            <lighting>1</lighting>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+            <shader type='vertex'>
+              <normal_map>__default__</normal_map>
+            </shader>
+            <ambient>0.3 0.3 0.3 1</ambient>
+            <diffuse>0.7 0.7 0.7 1</diffuse>
+            <specular>0.01 0.01 0.01 1</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>2 1 0.8</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+      </link>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>1 0.5 0.4 0 -0 0</pose>
+    </model>
+    <model name='chair_ivar_part0'>
+      <link name='mesh_link0'>
+        <visual name='visual0'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/0.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision0'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/0.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.64439 -4.20355 0 0 -0 0</pose>
+    </model>
+    <model name='chair_ivar_part1'>
+      <link name='mesh_link1'>
+        <visual name='visual1'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/1.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision1'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/1.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-1.81247 -1.57696 0 0 -0 0</pose>
+    </model>
+    <model name='chair_ivar_part2'>
+      <link name='mesh_link2'>
+        <visual name='visual2'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/2.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision2'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/2.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-0.527403 0.23189 0 0 -0 0</pose>
+    </model>
+    <model name='chair_ivar_part3'>
+      <link name='mesh_link3'>
+        <visual name='visual3'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/3.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision3'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/3.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>0.610144 -1.08788 0 0 -0 0</pose>
+      <enable_wind>0</enable_wind>
+    </model>
+    <model name='chair_ivar_part4'>
+      <link name='chair_ivar_part4::mesh_link4'>
+        <visual name='visual4'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/4.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision4'>
+          <geometry>
+            <mesh>
+              <uri>model://ivar_chair/meshes/4.stl</uri>
+              <scale>0.00065 0.00065 0.00065</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <inertial>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>1.07415 -1.75299 0 0 -0 0</pose>
+    </model>
+    <model name='robot'>
+      <link name='kinectv2_1_kinect2_link'>
+        <pose frame=''>1.1 0.5 1 0 0.15 3</pose>
+        <inertial>
+          <pose frame=''>-0.021511 -0.048917 0.103333 0 -0 0</pose>
+          <mass>0.3</mass>
+          <inertia>
+            <ixx>0.0320945</ixx>
+            <ixy>-0.000157839</ixy>
+            <ixz>0.000333426</ixz>
+            <iyy>0.0316711</iyy>
+            <iyz>0.000758208</iyz>
+            <izz>0.0305622</izz>
+          </inertia>
+        </inertial>
+        <collision name='kinectv2_1_kinect2_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='kinectv2_1_kinect2_link_fixed_joint_lump__kinectv2_1_kinect2_ir_link_collision_1'>
+          <pose frame=''>-0.032267 -0.0475 0.155 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='kinectv2_1_kinect2_link_fixed_joint_lump__kinectv2_1_kinect2_rgb_link_collision_2'>
+          <pose frame=''>-0.032267 -0.09925 0.155 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='kinectv2_1_kinect2_link_visual'>
+          <pose frame=''>-0.102 -0.148 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/ozgur/ws_new/src/common-sensors/common_sensors/meshes/sensors/kinect2_assembly.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='kinectv2_1_kinect2_link_fixed_joint_lump__kinectv2_1_kinect2_ir_link_visual_1'>
+          <pose frame=''>-0.032267 -0.0475 0.155 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='kinectv2_1_kinect2_link_fixed_joint_lump__kinectv2_1_kinect2_rgb_link_visual_2'>
+          <pose frame=''>-0.032267 -0.09925 0.155 -1.5708 -0 -1.5708</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay/>
+        <sensor name='kinectv2_1_ir_sensor' type='depth'>
+          <always_on>1</always_on>
+          <update_rate>1</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>0.994838</horizontal_fov>
+            <image>
+              <format>L8</format>
+              <width>640</width>
+              <height>480</height>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>5</far>
+            </clip>
+          </camera>
+          <plugin name='kinectv2_1_kinect2_ir_link_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>kinectv2_1_head_mount_kinect2_ir</cameraName>
+            <imageTopicName>/kinectv2_1_head_mount_kinect2/ir/image_raw</imageTopicName>
+            <cameraInfoTopicName>/kinectv2_1_head_mount_kinect2/ir/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/kinectv2_1_head_mount_kinect2/depth/image_raw</depthImageTopicName>
+            <depthImageCameraInfoTopicName>/kinectv2_1_head_mount_kinect2/depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>/kinectv2_1_head_mount_kinect2/depth/points</pointCloudTopicName>
+            <frameName>kinectv2_1_kinect2_ir_optical_frame</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose frame=''>-0.032267 -0.0475 0.155 0 -0 0</pose>
+        </sensor>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <sensor name='kinectv2_1_rgb_sensor' type='depth'>
+          <always_on>1</always_on>
+          <update_rate>1</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>0.994838</horizontal_fov>
+            <image>
+              <format>B8G8R8</format>
+              <width>640</width>
+              <height>480</height>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>5</far>
+            </clip>
+          </camera>
+          <plugin name='kinectv2_1_kinect2_rgb_link_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>kinectv2_1_head_mount_kinect2_rgb</cameraName>
+            <imageTopicName>/kinectv2_1_head_mount_kinect2/rgb/image_raw</imageTopicName>
+            <cameraInfoTopicName>/kinectv2_1_head_mount_kinect2/rgb/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/kinectv2_1_head_mount_kinect2/depth/image_raw</depthImageTopicName>
+            <depthImageCameraInfoTopicName>/kinectv2_1_head_mount_kinect2/depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>/kinectv2_1_head_mount_kinect2/depth_registered/points</pointCloudTopicName>
+            <frameName>kinectv2_1_kinect2_rgb_optical_frame</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose frame=''>-0.032267 -0.09925 0.155 0 -0 0</pose>
+        </sensor>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='kinectv2_1_kinect2_joint' type='fixed'>
+        <child>kinectv2_1_kinect2_link</child>
+        <parent>world</parent>
+      </joint>
+      <link name='kinectv2_2_kinect2_link'>
+        <pose frame=''>-0.5 0 1 0 0.15 1.5</pose>
+        <inertial>
+          <pose frame=''>-0.021511 -0.048917 0.103333 0 -0 0</pose>
+          <mass>0.3</mass>
+          <inertia>
+            <ixx>0.0320945</ixx>
+            <ixy>-0.000157839</ixy>
+            <ixz>0.000333426</ixz>
+            <iyy>0.0316711</iyy>
+            <iyz>0.000758208</iyz>
+            <izz>0.0305622</izz>
+          </inertia>
+        </inertial>
+        <collision name='kinectv2_2_kinect2_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='kinectv2_2_kinect2_link_fixed_joint_lump__kinectv2_2_kinect2_ir_link_collision_1'>
+          <pose frame=''>-0.032267 -0.0475 0.155 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='kinectv2_2_kinect2_link_fixed_joint_lump__kinectv2_2_kinect2_rgb_link_collision_2'>
+          <pose frame=''>-0.032267 -0.09925 0.155 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='kinectv2_2_kinect2_link_visual'>
+          <pose frame=''>-0.102 -0.148 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/ozgur/ws_new/src/common-sensors/common_sensors/meshes/sensors/kinect2_assembly.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='kinectv2_2_kinect2_link_fixed_joint_lump__kinectv2_2_kinect2_ir_link_visual_1'>
+          <pose frame=''>-0.032267 -0.0475 0.155 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='kinectv2_2_kinect2_link_fixed_joint_lump__kinectv2_2_kinect2_rgb_link_visual_2'>
+          <pose frame=''>-0.032267 -0.09925 0.155 -1.5708 -0 -1.5708</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay/>
+        <sensor name='kinectv2_2_ir_sensor' type='depth'>
+          <always_on>1</always_on>
+          <update_rate>1</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>0.994838</horizontal_fov>
+            <image>
+              <format>L8</format>
+              <width>640</width>
+              <height>480</height>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>5</far>
+            </clip>
+          </camera>
+          <plugin name='kinectv2_2_kinect2_ir_link_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>kinectv2_2_head_mount_kinect2_ir</cameraName>
+            <imageTopicName>/kinectv2_2_head_mount_kinect2/ir/image_raw</imageTopicName>
+            <cameraInfoTopicName>/kinectv2_2_head_mount_kinect2/ir/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/kinectv2_2_head_mount_kinect2/depth/image_raw</depthImageTopicName>
+            <depthImageCameraInfoTopicName>/kinectv2_2_head_mount_kinect2/depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>/kinectv2_2_head_mount_kinect2/depth/points</pointCloudTopicName>
+            <frameName>kinectv2_2_kinect2_ir_optical_frame</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose frame=''>-0.032267 -0.0475 0.155 0 -0 0</pose>
+        </sensor>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <sensor name='kinectv2_2_rgb_sensor' type='depth'>
+          <always_on>1</always_on>
+          <update_rate>1</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>0.994838</horizontal_fov>
+            <image>
+              <format>B8G8R8</format>
+              <width>640</width>
+              <height>480</height>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>5</far>
+            </clip>
+          </camera>
+          <plugin name='kinectv2_2_kinect2_rgb_link_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>kinectv2_2_head_mount_kinect2_rgb</cameraName>
+            <imageTopicName>/kinectv2_2_head_mount_kinect2/rgb/image_raw</imageTopicName>
+            <cameraInfoTopicName>/kinectv2_2_head_mount_kinect2/rgb/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/kinectv2_2_head_mount_kinect2/depth/image_raw</depthImageTopicName>
+            <depthImageCameraInfoTopicName>/kinectv2_2_head_mount_kinect2/depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>/kinectv2_2_head_mount_kinect2/depth_registered/points</pointCloudTopicName>
+            <frameName>kinectv2_2_kinect2_rgb_optical_frame</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose frame=''>-0.032267 -0.09925 0.155 0 -0 0</pose>
+        </sensor>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='kinectv2_2_kinect2_joint' type='fixed'>
+        <child>kinectv2_2_kinect2_link</child>
+        <parent>world</parent>
+      </joint>
+      <link name='kinectv2_3_kinect2_link'>
+        <pose frame=''>1.4 0 1.6 0 0.3 2.1</pose>
+        <inertial>
+          <pose frame=''>-0.021511 -0.048917 0.103333 0 -0 0</pose>
+          <mass>0.3</mass>
+          <inertia>
+            <ixx>0.0320945</ixx>
+            <ixy>-0.000157839</ixy>
+            <ixz>0.000333426</ixz>
+            <iyy>0.0316711</iyy>
+            <iyz>0.000758208</iyz>
+            <izz>0.0305622</izz>
+          </inertia>
+        </inertial>
+        <collision name='kinectv2_3_kinect2_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='kinectv2_3_kinect2_link_fixed_joint_lump__kinectv2_3_kinect2_ir_link_collision_1'>
+          <pose frame=''>-0.032267 -0.0475 0.155 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='kinectv2_3_kinect2_link_fixed_joint_lump__kinectv2_3_kinect2_rgb_link_collision_2'>
+          <pose frame=''>-0.032267 -0.09925 0.155 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='kinectv2_3_kinect2_link_visual'>
+          <pose frame=''>-0.102 -0.148 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>0.001 0.001 0.001</scale>
+              <uri>/home/ozgur/ws_new/src/common-sensors/common_sensors/meshes/sensors/kinect2_assembly.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='kinectv2_3_kinect2_link_fixed_joint_lump__kinectv2_3_kinect2_ir_link_visual_1'>
+          <pose frame=''>-0.032267 -0.0475 0.155 0 -0 0</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <visual name='kinectv2_3_kinect2_link_fixed_joint_lump__kinectv2_3_kinect2_rgb_link_visual_2'>
+          <pose frame=''>-0.032267 -0.09925 0.155 -1.5708 -0 -1.5708</pose>
+          <geometry>
+            <sphere>
+              <radius>0.0005</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Red</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <velocity_decay/>
+        <sensor name='kinectv2_3_ir_sensor' type='depth'>
+          <always_on>1</always_on>
+          <update_rate>1</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>0.994838</horizontal_fov>
+            <image>
+              <format>L8</format>
+              <width>640</width>
+              <height>480</height>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>5</far>
+            </clip>
+          </camera>
+          <plugin name='kinectv2_3_kinect2_ir_link_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <baseline>0.2</baseline>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>kinectv2_3_head_mount_kinect2_ir</cameraName>
+            <imageTopicName>/kinectv2_3_head_mount_kinect2/ir/image_raw</imageTopicName>
+            <cameraInfoTopicName>/kinectv2_3_head_mount_kinect2/ir/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/kinectv2_3_head_mount_kinect2/depth/image_raw</depthImageTopicName>
+            <depthImageCameraInfoTopicName>/kinectv2_3_head_mount_kinect2/depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>/kinectv2_3_head_mount_kinect2/depth/points</pointCloudTopicName>
+            <frameName>kinectv2_3_kinect2_ir_optical_frame</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose frame=''>-0.032267 -0.0475 0.155 0 -0 0</pose>
+        </sensor>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <sensor name='kinectv2_3_rgb_sensor' type='depth'>
+          <always_on>1</always_on>
+          <update_rate>1</update_rate>
+          <camera name='__default__'>
+            <horizontal_fov>0.994838</horizontal_fov>
+            <image>
+              <format>B8G8R8</format>
+              <width>640</width>
+              <height>480</height>
+            </image>
+            <clip>
+              <near>0.01</near>
+              <far>5</far>
+            </clip>
+          </camera>
+          <plugin name='kinectv2_3_kinect2_rgb_link_controller' filename='libgazebo_ros_openni_kinect.so'>
+            <alwaysOn>1</alwaysOn>
+            <updateRate>1.0</updateRate>
+            <cameraName>kinectv2_3_head_mount_kinect2_rgb</cameraName>
+            <imageTopicName>/kinectv2_3_head_mount_kinect2/rgb/image_raw</imageTopicName>
+            <cameraInfoTopicName>/kinectv2_3_head_mount_kinect2/rgb/camera_info</cameraInfoTopicName>
+            <depthImageTopicName>/kinectv2_3_head_mount_kinect2/depth/image_raw</depthImageTopicName>
+            <depthImageCameraInfoTopicName>/kinectv2_3_head_mount_kinect2/depth/camera_info</depthImageCameraInfoTopicName>
+            <pointCloudTopicName>/kinectv2_3_head_mount_kinect2/depth_registered/points</pointCloudTopicName>
+            <frameName>kinectv2_3_kinect2_rgb_optical_frame</frameName>
+            <pointCloudCutoff>0.5</pointCloudCutoff>
+            <distortionK1>0.00000001</distortionK1>
+            <distortionK2>0.00000001</distortionK2>
+            <distortionK3>0.00000001</distortionK3>
+            <distortionT1>0.00000001</distortionT1>
+            <distortionT2>0.00000001</distortionT2>
+            <CxPrime>0</CxPrime>
+            <Cx>0</Cx>
+            <Cy>0</Cy>
+            <focalLength>0</focalLength>
+            <hackBaseline>0</hackBaseline>
+            <robotNamespace>/</robotNamespace>
+          </plugin>
+          <pose frame=''>-0.032267 -0.09925 0.155 0 -0 0</pose>
+        </sensor>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='kinectv2_3_kinect2_joint' type='fixed'>
+        <child>kinectv2_3_kinect2_link</child>
+        <parent>world</parent>
+      </joint>
+      <link name='base_link'>
+        <pose frame=''>0 0 1.1 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>4</mass>
+          <inertia>
+            <ixx>0.00443333</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.00443333</iyy>
+            <iyz>0</iyz>
+            <izz>0.0072</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/collision/base.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='base_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/visual/base.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='world_joint' type='fixed'>
+        <child>base_link</child>
+        <parent>world</parent>
+      </joint>
+      <link name='shoulder_link'>
+        <pose frame=''>0 0 1.18916 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <mass>3.7</mass>
+          <inertia>
+            <ixx>0.0102675</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0102675</iyy>
+            <iyz>0</iyz>
+            <izz>0.00666</izz>
+          </inertia>
+        </inertial>
+        <collision name='shoulder_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/collision/shoulder.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='shoulder_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/visual/shoulder.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>__default__</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>1</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='shoulder_pan_joint' type='revolute'>
+        <child>shoulder_link</child>
+        <parent>base_link</parent>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>150</effort>
+            <velocity>3.15</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='upper_arm_link'>
+        <pose frame=''>0 0.13585 1.18916 3.14159 1.57079 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 0 0.28 0 -0 0</pose>
+          <mass>8.393</mass>
+          <inertia>
+            <ixx>0.226891</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.226891</iyy>
+            <iyz>0</iyz>
+            <izz>0.0151074</izz>
+          </inertia>
+        </inertial>
+        <collision name='upper_arm_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/collision/upperarm.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='upper_arm_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/visual/upperarm.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>__default__</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>1</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='shoulder_lift_joint' type='revolute'>
+        <child>upper_arm_link</child>
+        <parent>shoulder_link</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>150</effort>
+            <velocity>3.15</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='forearm_link'>
+        <pose frame=''>0.425 0.01615 1.18916 3.14159 1.57079 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 0 0.196125 0 -0 0</pose>
+          <mass>2.275</mass>
+          <inertia>
+            <ixx>0.0312168</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0312168</iyy>
+            <iyz>0</iyz>
+            <izz>0.004095</izz>
+          </inertia>
+        </inertial>
+        <collision name='forearm_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/collision/forearm.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='forearm_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/visual/forearm.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>__default__</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>1</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='elbow_joint' type='revolute'>
+        <child>forearm_link</child>
+        <parent>upper_arm_link</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>150</effort>
+            <velocity>3.15</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wrist_1_link'>
+        <pose frame=''>0.81725 0.01615 1.18916 3.14159 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 0.093 0 0 -0 0</pose>
+          <mass>1.219</mass>
+          <inertia>
+            <ixx>0.0025599</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0025599</iyy>
+            <iyz>0</iyz>
+            <izz>0.0021942</izz>
+          </inertia>
+        </inertial>
+        <collision name='wrist_1_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/collision/wrist1.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='wrist_1_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/visual/wrist1.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>__default__</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>1</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wrist_1_joint' type='revolute'>
+        <child>wrist_1_link</child>
+        <parent>forearm_link</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>28</effort>
+            <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wrist_2_link'>
+        <pose frame=''>0.81725 0.10915 1.18916 3.14159 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>0 0 0.09465 0 -0 0</pose>
+          <mass>1.219</mass>
+          <inertia>
+            <ixx>0.0025599</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.0025599</iyy>
+            <iyz>0</iyz>
+            <izz>0.0021942</izz>
+          </inertia>
+        </inertial>
+        <collision name='wrist_2_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/collision/wrist2.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='wrist_2_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/visual/wrist2.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>__default__</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+        </visual>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>1</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wrist_2_joint' type='revolute'>
+        <child>wrist_2_link</child>
+        <parent>wrist_1_link</parent>
+        <axis>
+          <xyz>0 0 -1</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>28</effort>
+            <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='wrist_3_link'>
+        <pose frame=''>0.81725 0.10915 1.09451 3.14159 -0 3.14159</pose>
+        <inertial>
+          <pose frame=''>1e-06 0.125459 -0 1.5708 -0 0</pose>
+          <mass>0.71442</mass>
+          <inertia>
+            <ixx>0.00148235</ixx>
+            <ixy>-4.24358e-10</ixy>
+            <ixz>-1.00297e-06</ixz>
+            <iyy>0.00150708</iyy>
+            <iyz>-1.00087e-06</iyz>
+            <izz>0.000485897</izz>
+          </inertia>
+        </inertial>
+        <collision name='wrist_3_link_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/collision/wrist3.stl</uri>
+            </mesh>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='wrist_3_link_fixed_joint_lump__ee_link_collision_1'>
+          <pose frame=''>-0 0.0723 0 0 -0 1.5708</pose>
+          <geometry>
+            <box>
+              <size>0.01 0.01 0.01</size>
+            </box>
+          </geometry>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <friction>
+              <ode/>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <collision name='wrist_3_link_fixed_joint_lump__ft300_mounting_plate_collision_2'>
+          <pose frame=''>0 0.0823 0 -1.5708 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_ft_sensor/meshes/collision/mountings/robotiq_ft300-G-062-COUPLING_G-50-4M6-1D6_20181119.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='wrist_3_link_fixed_joint_lump__ft300_sensor_collision_3'>
+          <pose frame=''>0 0.1238 0 -1.5708 -0 3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_ft_sensor/meshes/collision/robotiq_ft300.STL</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='wrist_3_link_fixed_joint_lump__robotiq_arg2f_base_link_collision_4'>
+          <pose frame=''>0 0.1238 0 -3.14159 1.57079 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/collision/robotiq_arg2f_base_link.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='wrist_3_link_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/universal_robot/ur_description/meshes/ur5/visual/wrist3.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>__default__</uri>
+              <name>__default__</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='wrist_3_link_fixed_joint_lump__ft300_mounting_plate_visual_1'>
+          <pose frame=''>0 0.0823 0 -1.5708 0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_ft_sensor/meshes/visual/mountings/robotiq_ft300-G-062-COUPLING_G-50-4M6-1D6_20181119.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='wrist_3_link_fixed_joint_lump__ft300_sensor_visual_2'>
+          <pose frame=''>0 0.1238 0 -1.5708 -0 3.14159</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_ft_sensor/meshes/visual/robotiq_ft300.STL</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='wrist_3_link_fixed_joint_lump__robotiq_arg2f_base_link_visual_3'>
+          <pose frame=''>0 0.1238 0 -3.14159 1.57079 -1.5708</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/visual/robotiq_arg2f_base_link.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <velocity_decay/>
+        <gravity>1</gravity>
+        <velocity_decay/>
+        <self_collide>1</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='wrist_3_joint' type='revolute'>
+        <child>wrist_3_link</child>
+        <parent>wrist_2_link</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-3.14159</lower>
+            <upper>3.14159</upper>
+            <effort>28</effort>
+            <velocity>3.2</velocity>
+          </limit>
+          <dynamics>
+            <damping>0</damping>
+            <friction>0</friction>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='left_outer_knuckle'>
+        <pose frame=''>0.786649 0.287855 1.09451 -2.41659 -1.57079 3.14159</pose>
+        <inertial>
+          <pose frame=''>0.000164 0.04584 0.01178 0 -0 0</pose>
+          <mass>0.0311462</mass>
+          <inertia>
+            <ixx>2.96016e-05</ixx>
+            <ixy>-1.09755e-07</ixy>
+            <ixz>7.40449e-08</ixz>
+            <iyy>1.16215e-05</iyy>
+            <iyz>1.08762e-05</iyz>
+            <izz>2.07508e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_outer_knuckle_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/collision/robotiq_arg2f_140_outer_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='left_outer_knuckle_fixed_joint_lump__left_outer_finger_collision_1'>
+          <pose frame=''>0 0.01822 0.026002 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/collision/robotiq_arg2f_140_outer_finger.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_outer_knuckle_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/visual/robotiq_arg2f_140_outer_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='left_outer_knuckle_fixed_joint_lump__left_outer_finger_visual_1'>
+          <pose frame=''>0 0.01822 0.026002 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/visual/robotiq_arg2f_140_outer_finger.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='finger_joint' type='revolute'>
+        <child>left_outer_knuckle</child>
+        <parent>wrist_3_link</parent>
+        <axis>
+          <xyz>0 -0 -1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0.7</upper>
+            <effort>1000</effort>
+            <velocity>2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='left_inner_finger'>
+        <pose frame=''>0.722012 0.364158 1.09451 3.14159 -1.57079 -3.14159</pose>
+        <inertial>
+          <pose frame=''>0.0003 0.057453 -0.038351 0 -0 0</pose>
+          <mass>0.1104</mass>
+          <inertia>
+            <ixx>3.21408e-05</ixx>
+            <ixy>2.96462e-21</ixy>
+            <ixz>-1.48231e-21</ixz>
+            <iyy>8.51833e-06</iyy>
+            <iyz>1.30825e-05</iyz>
+            <izz>2.43288e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_inner_finger_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/collision/robotiq_arg2f_140_inner_finger.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='left_inner_finger_pad_collision_1'>
+          <pose frame=''>0 0.045755 -0.02722 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.03 0.07 0.0075</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_inner_finger_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/visual/robotiq_arg2f_140_inner_finger.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='left_inner_finger_pad_visual_1'>
+          <pose frame=''>0 0.045755 -0.02722 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.027 0.065 0.0075</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_inner_finger_joint' type='revolute'>
+        <child>left_inner_finger</child>
+        <parent>left_outer_knuckle</parent>
+        <axis>
+          <xyz>-0 0 1</xyz>
+          <limit>
+            <lower>-0.8757</lower>
+            <upper>0.8757</upper>
+            <effort>1000</effort>
+            <velocity>2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='left_inner_knuckle'>
+        <pose frame=''>0.80455 0.29437 1.09451 -2.41659 -1.57079 3.14159</pose>
+        <inertial>
+          <pose frame=''>0.000123 0.050785 0.00104 0 -0 0</pose>
+          <mass>0.0271177</mass>
+          <inertia>
+            <ixx>2.6191e-05</ixx>
+            <ixy>-2.43617e-07</ixy>
+            <ixz>-6.3779e-09</ixz>
+            <iyy>2.82702e-06</iyy>
+            <iyz>-5.37201e-07</iyz>
+            <izz>2.83696e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='left_inner_knuckle_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/collision/robotiq_arg2f_140_inner_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='left_inner_knuckle_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/visual/robotiq_arg2f_140_inner_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='left_inner_knuckle_joint' type='revolute'>
+        <child>left_inner_knuckle</child>
+        <parent>wrist_3_link</parent>
+        <axis>
+          <xyz>-0 0 1</xyz>
+          <limit>
+            <lower>-0.8757</lower>
+            <upper>0.8757</upper>
+            <effort>1000</effort>
+            <velocity>2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='right_inner_knuckle'>
+        <pose frame=''>0.82995 0.29437 1.09451 -2.41659 1.57079 3.14159</pose>
+        <inertial>
+          <pose frame=''>0.000123 0.050785 0.00104 0 -0 0</pose>
+          <mass>0.0271177</mass>
+          <inertia>
+            <ixx>2.6191e-05</ixx>
+            <ixy>-2.43617e-07</ixy>
+            <ixz>-6.3779e-09</ixz>
+            <iyy>2.82702e-06</iyy>
+            <iyz>-5.37201e-07</iyz>
+            <izz>2.83696e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_inner_knuckle_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/collision/robotiq_arg2f_140_inner_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_inner_knuckle_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/visual/robotiq_arg2f_140_inner_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_inner_knuckle_joint' type='revolute'>
+        <child>right_inner_knuckle</child>
+        <parent>wrist_3_link</parent>
+        <axis>
+          <xyz>0 -0 -1</xyz>
+          <limit>
+            <lower>-0.8757</lower>
+            <upper>0.8757</upper>
+            <effort>1000</effort>
+            <velocity>2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='right_outer_knuckle'>
+        <pose frame=''>0.847851 0.287855 1.09451 -2.41659 1.57079 3.14159</pose>
+        <inertial>
+          <pose frame=''>0.000164 0.04584 0.01178 0 -0 0</pose>
+          <mass>0.0311462</mass>
+          <inertia>
+            <ixx>2.96016e-05</ixx>
+            <ixy>-1.09755e-07</ixy>
+            <ixz>7.40449e-08</ixz>
+            <iyy>1.16215e-05</iyy>
+            <iyz>1.08762e-05</iyz>
+            <izz>2.07508e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_outer_knuckle_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/collision/robotiq_arg2f_140_outer_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='right_outer_knuckle_fixed_joint_lump__right_outer_finger_collision_1'>
+          <pose frame=''>0 0.01822 0.026002 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/collision/robotiq_arg2f_140_outer_finger.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_outer_knuckle_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/visual/robotiq_arg2f_140_outer_knuckle.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='right_outer_knuckle_fixed_joint_lump__right_outer_finger_visual_1'>
+          <pose frame=''>0 0.01822 0.026002 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/visual/robotiq_arg2f_140_outer_finger.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_outer_knuckle_joint' type='revolute'>
+        <child>right_outer_knuckle</child>
+        <parent>wrist_3_link</parent>
+        <axis>
+          <xyz>0 -0 -1</xyz>
+          <limit>
+            <lower>-0.725</lower>
+            <upper>0.725</upper>
+            <effort>1000</effort>
+            <velocity>2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <link name='right_inner_finger'>
+        <pose frame=''>0.912488 0.364158 1.09451 3.14159 1.57079 3.14159</pose>
+        <inertial>
+          <pose frame=''>0.0003 0.057453 -0.038351 0 -0 0</pose>
+          <mass>0.1104</mass>
+          <inertia>
+            <ixx>3.21408e-05</ixx>
+            <ixy>2.96462e-21</ixy>
+            <ixz>-1.48231e-21</ixz>
+            <iyy>8.51833e-06</iyy>
+            <iyz>1.30825e-05</iyz>
+            <izz>2.43288e-05</izz>
+          </inertia>
+        </inertial>
+        <collision name='right_inner_finger_collision'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/collision/robotiq_arg2f_140_inner_finger.stl</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='right_inner_finger_pad_collision_1'>
+          <pose frame=''>0 0.045755 -0.02722 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.03 0.07 0.0075</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='right_inner_finger_visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <scale>1 1 1</scale>
+              <uri>/home/ozgur/ws_new/src/robotiq/robotiq_2f_140_gripper_visualization/meshes/visual/robotiq_arg2f_140_inner_finger.stl</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='right_inner_finger_pad_visual_1'>
+          <pose frame=''>0 0.045755 -0.02722 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.027 0.065 0.0075</size>
+            </box>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='right_inner_finger_joint' type='revolute'>
+        <child>right_inner_finger</child>
+        <parent>right_outer_knuckle</parent>
+        <axis>
+          <xyz>0 -0 -1</xyz>
+          <limit>
+            <lower>-0.8757</lower>
+            <upper>0.8757</upper>
+            <effort>1000</effort>
+            <velocity>2</velocity>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+          <use_parent_model_frame>1</use_parent_model_frame>
+        </axis>
+      </joint>
+      <plugin name='ros_control' filename='libgazebo_ros_control.so'>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <static>0</static>
+      <plugin name='gazebo_grasp_fix' filename='libgazebo_grasp_fix.so'>
+        <arm>
+          <arm_name>robotiq_arg2f_140</arm_name>
+          <palm_link>wrist_3_link</palm_link>
+          <gripper_link>left_inner_finger</gripper_link>
+          <gripper_link>right_inner_finger</gripper_link>
+          <gripper_link>right_outer_knuckle</gripper_link>
+          <gripper_link>left_outer_knuckle</gripper_link>
+          <gripper_link>left_inner_knuckle</gripper_link>
+        </arm>
+        <forces_angle_tolerance>90</forces_angle_tolerance>
+        <update_rate>4</update_rate>
+        <grip_count_threshold>0</grip_count_threshold>
+        <max_grip_count>0</max_grip_count>
+        <release_tolerance>0.01</release_tolerance>
+        <disable_collisions_on_attach>1</disable_collisions_on_attach>
+        <contact_topic>__default_topic__</contact_topic>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='mimic_robotiq_140_4' filename='libroboticsgroup_gazebo_mimic_joint_plugin.so'>
+        <joint>finger_joint</joint>
+        <mimicJoint>right_outer_knuckle_joint</mimicJoint>
+        <multiplier>-1.0</multiplier>
+        <maxEffort>100</maxEffort>
+        <offset>0.0</offset>
+        <hasPID/>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='mimic_robotiq_140_2' filename='libroboticsgroup_gazebo_mimic_joint_plugin.so'>
+        <joint>finger_joint</joint>
+        <mimicJoint>left_inner_finger_joint</mimicJoint>
+        <multiplier>1.0</multiplier>
+        <maxEffort>100</maxEffort>
+        <offset>0.0</offset>
+        <hasPID/>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='mimic_robotiq_140_1' filename='libroboticsgroup_gazebo_mimic_joint_plugin.so'>
+        <joint>finger_joint</joint>
+        <mimicJoint>right_inner_finger_joint</mimicJoint>
+        <multiplier>1.0</multiplier>
+        <maxEffort>100</maxEffort>
+        <offset>0.0</offset>
+        <hasPID/>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='mimic_robotiq_140_3' filename='libroboticsgroup_gazebo_mimic_joint_plugin.so'>
+        <joint>finger_joint</joint>
+        <mimicJoint>left_inner_knuckle_joint</mimicJoint>
+        <multiplier>-1.0</multiplier>
+        <maxEffort>100</maxEffort>
+        <offset>0.0</offset>
+        <hasPID/>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <plugin name='mimic_robotiq_140_5' filename='libroboticsgroup_gazebo_mimic_joint_plugin.so'>
+        <joint>finger_joint</joint>
+        <mimicJoint>right_inner_knuckle_joint</mimicJoint>
+        <multiplier>-1.0</multiplier>
+        <maxEffort>100</maxEffort>
+        <offset>0.0</offset>
+        <hasPID/>
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+    </model>
+  </world>
+</sdf>

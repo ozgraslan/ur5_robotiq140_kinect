@@ -1,9 +1,13 @@
+advanced:
+  custom_build: true
 requirements:
   packages:
     - https://github.com/ozgraslan/universal_robot.git
     - https://github.com/ozgraslan/robotiq.git
     - https://github.com/RobotRose/kinect_description.git
-    - https://github.com/ozgraslan/ur5_robotiq140_kinect.git
+    - https://github.com/ozgraslan/ur5_robotiq140_kinect.git@@master
+    - https://github.com/ozgraslan/gazebo-pkgs.git
+    - 
 runtime:
   launch:
     args:

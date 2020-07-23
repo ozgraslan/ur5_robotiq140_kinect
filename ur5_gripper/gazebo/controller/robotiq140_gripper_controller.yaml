@@ -2,8 +2,6 @@
 gripper_controller:
   type: position_controllers/GripperActionController
   joint: finger_joint
-
-
 gazebo_ros_control:
   pid_gains:
     right_outer_knuckle_joint:
