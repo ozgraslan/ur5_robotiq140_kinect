@@ -1,0 +1,5 @@
+<launch>
+
+  <node name="ur5_gripper_python_interface" pkg="ur5_gripper_moveit_config" type="python_interface.py" respawn="false" output="screen"></node>
+
+</launch>

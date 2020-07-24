@@ -26,7 +26,7 @@ public:
     UR5GripperInterface(std::string arm_group_name, std::string gripper_group_name);
     ~UR5GripperInterface();
     //pose w, x, y, z
-    go_pose(std::vector<float> pose);
+    bool go_pose(std::vector<float> pose);
 
 }
 
