@@ -197,7 +197,10 @@ class UR5GripperPythonInteface(object):
     ## end-effector:
     
     pose_goal = geometry_msgs.msg.Pose()
-    pose_goal.orientation.w = pose["w"]
+    pose_goal.orientation.w = pose["qw"]
+    pose_goal.orientation.x = pose["qx"]
+    pose_goal.orientation.y = pose["qy"]
+    pose_goal.orientation.z = pose["qz"]
     pose_goal.position.x = pose["x"]
     pose_goal.position.y = pose["y"]
     pose_goal.position.z = pose["z"]
@@ -221,7 +224,7 @@ class UR5GripperPythonInteface(object):
     return all_close(pose_goal, current_pose, 0.01)
 
 
-  def plan_cartesian_path(self, scale=1):
+  def plan_cartesian_path(self, pose, num, scale=1):
     # Copy class variables to local variables to make the web tutorials more clear.
     # In practice, you should use the class variables directly unless you have a good
     # reason not to.
@@ -236,17 +239,15 @@ class UR5GripperPythonInteface(object):
     ## Python shell, set scale = 1.0.
     ##
     waypoints = []
-
     wpose = move_group.get_current_pose().pose
-    wpose.position.z -= scale * 0.1  # First move up (z)
-    wpose.position.y += scale * 0.2  # and sideways (y)
-    waypoints.append(copy.deepcopy(wpose))
-
-    wpose.position.x += scale * 0.1  # Second move forward/backwards in (x)
-    waypoints.append(copy.deepcopy(wpose))
-
-    wpose.position.y -= scale * 0.1  # Third move sideways (y)
-    waypoints.append(copy.deepcopy(wpose))
+    xstep = (pose["x"] - wpose.position.x)/num
+    ystep = (pose["y"] - wpose.position.y)/num
+    zstep = (pose["z"] - wpose.position.z)/num
+    for i in range(num):
+        wpose.position.x += xstep
+        wpose.position.y += ystep
+        wpose.position.z += zstep
+        waypoints.append(copy.deepcopy(wpose))
 
     # We want the Cartesian path to be interpolated at a resolution of 1 cm
     # which is why we will specify 0.01 as the eef_step in Cartesian
@@ -446,8 +447,11 @@ class UR5GripperPythonInteface(object):
 
     # We wait for the planning scene to update.
     return self.wait_for_state_update(box_is_attached=False, box_is_known=False, timeout=timeout)
+  def set_velociy_acceleration_factors(self, velocity_factor, acc_factor):
+      self.move_group.set_max_velocity_scaling_factor(velocity_factor)
+      self.move_group.set_max_acceleration_scaling_factor(acc_factor)
 
-
+      
 def main():
   try:
     print ""
@@ -458,17 +462,54 @@ def main():
     print ""
     print "============ Press `Enter` to begin the tutorial by setting up the moveit_commander ..."
     raw_input()
-    tutorial = UR5GripperPythonInteface()
-
+    ur5_gripper_interface = UR5GripperPythonInteface()
+    prev = ""
     while(True):
-        xyzw = raw_input()
-        x,y,z,w = xyzw.split(" ")
-        pose = {}
-        pose["x"] = float(x)
-        pose["y"] = float(y)
-        pose["z"] = float(z)
-        pose["w"] = float(w)
-        tutorial.go_to_pose_goal(pose)
+        print ""
+        print "============ Enter Mode ..."
+        mode = raw_input()
+        if mode not in ["pose_goal", "cartesian_path", "set_factors"]:
+            mode = prev
+
+        if(mode == "pose_goal"):
+            print "============ Enter x y z qx qy qz qw ..."
+            pose_input = raw_input()
+            x,y,z,qx, qy, qz, qw = pose_input.split(" ")
+            pose = {}
+            pose["x"] = float(x)
+            pose["y"] = float(y)
+            pose["z"] = float(z)
+            pose["qx"] = float(qx)
+            pose["qy"] = float(qy)
+            pose["qz"] = float(qz)
+            pose["qw"] = float(qw)
+            ur5_gripper_interface.go_to_pose_goal(pose)
+        elif(mode == "cartesian_path"):
+            print 'Enter x y z step_number...'
+            pose_input = raw_input()
+            x,y,z, step_number = pose_input.split(" ")
+            pose = {}
+            pose["x"] = float(x)
+            pose["y"] = float(y)
+            pose["z"] = float(z)
+            step_number = int(step_number)
+            plan, fraction = ur5_gripper_interface.plan_cartesian_path(pose, step_number)
+            print "============ Press `Enter` to display a saved trajectory needs rviz (this will replay the Cartesian path)  ..."
+            raw_input()
+            ur5_gripper_interface.display_trajectory(plan)
+            print "============ Press `Enter` to execute a saved path ..."
+            raw_input()
+            ur5_gripper_interface.execute_plan(plan)
+        elif(mode == "set_factors"):
+            print "============ Enter velocity and acceleration scaling factors ..."
+            factor_inp = raw_input()
+            vf, ac = factor_inp.split(" ")
+            vf = float(vf)
+            ac = float(ac)
+            ur5_gripper_interface.set_velociy_acceleration_factors(vf, ac)
+        prev = mode
+
+
 
   except rospy.ROSInterruptException:
     return
