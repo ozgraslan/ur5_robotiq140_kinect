@@ -2,18 +2,19 @@ advanced:
   custom_build: true
 requirements:
   packages:
-    - https://github.com/ozgraslan/universal_robot.git
-    - https://github.com/ozgraslan/robotiq.git
-    - https://github.com/RobotRose/kinect_description.git
-    - https://github.com/ozgraslan/ur5_robotiq140_kinect.git@@master
-    - https://github.com/ozgraslan/gazebo-pkgs.git
-    - 
+    - 'https://github.com/ozgraslan/universal_robot'
+    - 'https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins.git'
+    - 'https://github.com/JenniferBuehler/general-message-pkgs.git'
+    - 'https://github.com/JenniferBuehler/common-sensors.git'
+    - 'https://github.com/ozgraslan/gazebo-pkgs.git'
+    - 'https://github.com/ozgraslan/robotiq'
+    - 'https://github.com/ozgraslan/ur5_robotiq140_kinect@@kinectv2-devel'
 runtime:
   launch:
     args:
       gui: 'false'
       limited: 'true'
-      paused: 'true'
-    on_reset: rosservice call /gazebo/reset_world; 
+      paused: 'false'
+    on_reset: rosservice call /gazebo/reset_world;
     package: ur5_gripper
-    path: ur5_gripper.launch
+    path: cubeworld_only.launch

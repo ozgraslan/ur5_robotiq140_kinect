@@ -34,13 +34,7 @@
 #
 # Author: Acorn Pooley, Mike Lautman
 
-## BEGIN_SUB_TUTORIAL imports
-##
-## To use the Python MoveIt interfaces, we will import the `moveit_commander`_ namespace.
-## This namespace provides us with a `MoveGroupCommander`_ class, a `PlanningSceneInterface`_ class,
-## and a `RobotCommander`_ class. More on these below. We also import `rospy`_ and some messages that we will use:
-##
-
+import time
 import sys
 import copy
 import rospy
@@ -50,7 +44,7 @@ import geometry_msgs.msg
 from math import pi
 from std_msgs.msg import String
 from moveit_commander.conversions import pose_to_list
-## END_SUB_TUTORIAL
+
 
 
 def all_close(goal, actual, tolerance):
@@ -81,8 +75,7 @@ class UR5GripperPythonInteface(object):
   def __init__(self):
     super(UR5GripperPythonInteface, self).__init__()
 
-    ## BEGIN_SUB_TUTORIAL setup
-    ##
+
     ## First initialize `moveit_commander`_ and a `rospy`_ node:
     moveit_commander.roscpp_initialize(sys.argv)
     rospy.init_node('ur5_gripper_python_interface', anonymous=True)
@@ -96,14 +89,6 @@ class UR5GripperPythonInteface(object):
     ## surrounding world:
     scene = moveit_commander.PlanningSceneInterface()
 
-    ## Instantiate a `MoveGroupCommander`_ object.  This object is an interface
-    ## to a planning group (group of joints).  In this tutorial the group is the primary
-    ## arm joints in the Panda robot, so we set the group's name to "panda_arm".
-    ## If you are using a different robot, change this value to the name of your robot
-    ## arm planning group.
-    ## This interface can be used to plan and execute motions:
-    group_name = "ur5_arm"
-    move_group = moveit_commander.MoveGroupCommander(group_name)
 
     ## Create a `DisplayTrajectory`_ ROS publisher which is used to display
     ## trajectories in Rviz:
@@ -111,19 +96,6 @@ class UR5GripperPythonInteface(object):
                                                    moveit_msgs.msg.DisplayTrajectory,
                                                    queue_size=20)
 
-    ## END_SUB_TUTORIAL
-
-    ## BEGIN_SUB_TUTORIAL basic_info
-    ##
-    ## Getting Basic Information
-    ## ^^^^^^^^^^^^^^^^^^^^^^^^^
-    # We can get the name of the reference frame for this robot:
-    planning_frame = move_group.get_planning_frame()
-    print "============ Planning frame: %s" % planning_frame
-
-    # We can also print the name of the end-effector link for this group:
-    eef_link = move_group.get_end_effector_link()
-    print "============ End effector link: %s" % eef_link
 
     # We can get a list of all the groups in the robot:
     group_names = robot.get_group_names()
@@ -140,54 +112,75 @@ class UR5GripperPythonInteface(object):
     self.box_name = ''
     self.robot = robot
     self.scene = scene
-    self.move_group = move_group
     self.display_trajectory_publisher = display_trajectory_publisher
-    self.planning_frame = planning_frame
-    self.eef_link = eef_link
     self.group_names = group_names
+    
+    init=False
+    def initialize_groups():
+      self.arm_group = self.robot.get_group("ur5_arm")
+      self.gripper_group = self.robot.get_group("robotiq140gripper")
+      return
 
+    start_time = time.time()
+    while(init == False):
+      try:
+        initialize_groups()
+        init = True
+      except:
+        time_now = time.time()
+        #try for 120 seconds
+        if(time_now - start_time > 120):
+          print "Could not initialize groups ..."
+          print "shutdown"
+          sys.exit(1)
+        print "Failed to initialize groups, trying again ..."
 
+  def control_gripper(self):
+    print "============ Enter joint value for the gripper finger joint ..."
+    joint_input = raw_input()
+    new_goal = float(joint_input)
+    if(new_goal < 0 or new_goal > 0.7):
+      print "Gripper joint value should be 0 < and < 0.7!"
+      return
+    gripper_group = self.gripper_group
+    joint_goal = gripper_group.get_current_joint_values()
+    joint_goal[0] = new_goal
+    gripper_group.go(joint_goal, wait=True)
+    gripper_group.stop()
+    return 
+    
   def go_to_joint_state(self):
-    # Copy class variables to local variables to make the web tutorials more clear.
-    # In practice, you should use the class variables directly unless you have a good
-    # reason not to.
-    move_group = self.move_group
 
-    ## BEGIN_SUB_TUTORIAL plan_to_joint_state
-    ##
-    ## Planning to a Joint Goal
-    ## ^^^^^^^^^^^^^^^^^^^^^^^^
-    ## The Panda's zero configuration is at a `singularity <https://www.quora.com/Robotics-What-is-meant-by-kinematic-singularity>`_ so the first
-    ## thing we want to do is move it to a slightly better configuration.
-    # We can get the joint values from the group and adjust some of the values:
-    joint_goal = move_group.get_current_joint_values()
+    arm_group = self.arm_group
+
+    joint_goal = arm_group.get_current_joint_values()
     joint_goal[0] = 0
     joint_goal[1] = -pi/4
     joint_goal[2] = 0
     joint_goal[3] = -pi/2
     joint_goal[4] = 0
     joint_goal[5] = pi/3
-    joint_goal[6] = 0
+
 
     # The go command can be called with joint values, poses, or without any
     # parameters if you have already set the pose or joint target for the group
-    move_group.go(joint_goal, wait=True)
+    arm_group.go(joint_goal, wait=True)
 
     # Calling ``stop()`` ensures that there is no residual movement
-    move_group.stop()
+    arm_group.stop()
 
     ## END_SUB_TUTORIAL
 
     # For testing:
-    current_joints = move_group.get_current_joint_values()
+    current_joints = arm_group.get_current_joint_values()
     return all_close(joint_goal, current_joints, 0.01)
 
 
-  def go_to_pose_goal(self, pose):
+  def pose_goal(self):
     # Copy class variables to local variables to make the web tutorials more clear.
     # In practice, you should use the class variables directly unless you have a good
     # reason not to.
-    move_group = self.move_group
+    arm_group = self.arm_group
 
     ## BEGIN_SUB_TUTORIAL plan_to_pose
     ##
@@ -195,32 +188,34 @@ class UR5GripperPythonInteface(object):
     ## ^^^^^^^^^^^^^^^^^^^^^^^
     ## We can plan a motion for this group to a desired pose for the
     ## end-effector:
-    
+    print "============ Enter x y z qx qy qz qw ..."
+    pose_input = raw_input()
+    x,y,z,qx, qy, qz, qw = pose_input.split(" ")
     pose_goal = geometry_msgs.msg.Pose()
-    pose_goal.orientation.w = pose["qw"]
-    pose_goal.orientation.x = pose["qx"]
-    pose_goal.orientation.y = pose["qy"]
-    pose_goal.orientation.z = pose["qz"]
-    pose_goal.position.x = pose["x"]
-    pose_goal.position.y = pose["y"]
-    pose_goal.position.z = pose["z"]
+    pose_goal.orientation.w = float(qw)
+    pose_goal.orientation.x = float(qx)
+    pose_goal.orientation.y = float(qy)
+    pose_goal.orientation.z = float(qz)
+    pose_goal.position.x = float(x)
+    pose_goal.position.y = float(y)
+    pose_goal.position.z = float(z)
 
-    move_group.set_pose_target(pose_goal)
+    arm_group.set_pose_target(pose_goal)
 
     ## Now, we call the planner to compute the plan and execute it.
-    plan = move_group.go(wait=True)
+    plan = arm_group.go(wait=True)
     # Calling `stop()` ensures that there is no residual movement
-    move_group.stop()
+    arm_group.stop()
     # It is always good to clear your targets after planning with poses.
     # Note: there is no equivalent function for clear_joint_value_targets()
-    move_group.clear_pose_targets()
+    arm_group.clear_pose_targets()
 
     ## END_SUB_TUTORIAL
 
     # For testing:
     # Note that since this section of code will not be included in the tutorials
     # we use the class variable rather than the copied state variable
-    current_pose = self.move_group.get_current_pose().pose
+    current_pose = arm_group.get_current_pose().pose
     return all_close(pose_goal, current_pose, 0.01)
 
 
@@ -228,7 +223,7 @@ class UR5GripperPythonInteface(object):
     # Copy class variables to local variables to make the web tutorials more clear.
     # In practice, you should use the class variables directly unless you have a good
     # reason not to.
-    move_group = self.move_group
+    arm_group = self.arm_group
 
     ## BEGIN_SUB_TUTORIAL plan_cartesian_path
     ##
@@ -239,7 +234,7 @@ class UR5GripperPythonInteface(object):
     ## Python shell, set scale = 1.0.
     ##
     waypoints = []
-    wpose = move_group.get_current_pose().pose
+    wpose = arm_group.get_current_pose().pose
     xstep = (pose["x"] - wpose.position.x)/num
     ystep = (pose["y"] - wpose.position.y)/num
     zstep = (pose["z"] - wpose.position.z)/num
@@ -254,7 +249,7 @@ class UR5GripperPythonInteface(object):
     # translation.  We will disable the jump threshold by setting it to 0.0,
     # ignoring the check for infeasible jumps in joint space, which is sufficient
     # for this tutorial.
-    (plan, fraction) = move_group.compute_cartesian_path(
+    (plan, fraction) = arm_group.compute_cartesian_path(
                                        waypoints,   # waypoints to follow
                                        0.01,        # eef_step
                                        0.0)         # jump_threshold
@@ -296,7 +291,7 @@ class UR5GripperPythonInteface(object):
     # Copy class variables to local variables to make the web tutorials more clear.
     # In practice, you should use the class variables directly unless you have a good
     # reason not to.
-    move_group = self.move_group
+    arm_group = self.arm_group
 
     ## BEGIN_SUB_TUTORIAL execute_plan
     ##
@@ -304,7 +299,7 @@ class UR5GripperPythonInteface(object):
     ## ^^^^^^^^^^^^^^^^
     ## Use execute if you would like the robot to follow
     ## the plan that has already been computed:
-    move_group.execute(plan, wait=True)
+    arm_group.execute(plan, wait=True)
 
     ## **Note:** The robot's current joint state must be within some tolerance of the
     ## first waypoint in the `RobotTrajectory`_ or ``execute()`` will fail
@@ -447,19 +442,36 @@ class UR5GripperPythonInteface(object):
 
     # We wait for the planning scene to update.
     return self.wait_for_state_update(box_is_attached=False, box_is_known=False, timeout=timeout)
-  def set_velociy_acceleration_factors(self, velocity_factor, acc_factor):
-      self.move_group.set_max_velocity_scaling_factor(velocity_factor)
-      self.move_group.set_max_acceleration_scaling_factor(acc_factor)
 
-      
+  def set_velociy_acceleration_factors(self):
+      print "============ Enter velocity and acceleration scaling factors ..."
+      factor_inp = raw_input()
+      vf, ac = factor_inp.split(" ")
+      velocity_factor = float(vf)
+      acc_factor = float(ac)
+      arm_group = self.arm_group
+      arm_group.set_max_velocity_scaling_factor(velocity_factor)
+      arm_group.set_max_acceleration_scaling_factor(acc_factor)
+
+  def cartesian_path(self):
+    print 'Enter x y z step_number...'
+    pose_input = raw_input()
+    x,y,z, step_number = pose_input.split(" ")
+    pose = {}
+    pose["x"] = float(x)
+    pose["y"] = float(y)
+    pose["z"] = float(z)
+    step_number = int(step_number)
+    plan, fraction = self.plan_cartesian_path(pose, step_number)
+    print "============ Press `Enter` to display a saved trajectory needs rviz (this will replay the Cartesian path)  ..."
+    raw_input()
+    self.display_trajectory(plan)
+    print "============ Press `Enter` to execute a saved path ..."
+    raw_input()
+    self.execute_plan(plan)
+
 def main():
   try:
-    print ""
-    print "----------------------------------------------------------"
-    print "Welcome to the MoveIt MoveGroup Python Interface Tutorial"
-    print "----------------------------------------------------------"
-    print "Press Ctrl-D to exit at any time"
-    print ""
     print "============ Press `Enter` to begin the tutorial by setting up the moveit_commander ..."
     raw_input()
     ur5_gripper_interface = UR5GripperPythonInteface()
@@ -468,48 +480,17 @@ def main():
         print ""
         print "============ Enter Mode ..."
         mode = raw_input()
-        if mode not in ["pose_goal", "cartesian_path", "set_factors"]:
+        if mode not in ["pose_goal", "cartesian_path", "set_factors", "control_gripper"]:
             mode = prev
-
         if(mode == "pose_goal"):
-            print "============ Enter x y z qx qy qz qw ..."
-            pose_input = raw_input()
-            x,y,z,qx, qy, qz, qw = pose_input.split(" ")
-            pose = {}
-            pose["x"] = float(x)
-            pose["y"] = float(y)
-            pose["z"] = float(z)
-            pose["qx"] = float(qx)
-            pose["qy"] = float(qy)
-            pose["qz"] = float(qz)
-            pose["qw"] = float(qw)
-            ur5_gripper_interface.go_to_pose_goal(pose)
+            ur5_gripper_interface.pose_goal()
         elif(mode == "cartesian_path"):
-            print 'Enter x y z step_number...'
-            pose_input = raw_input()
-            x,y,z, step_number = pose_input.split(" ")
-            pose = {}
-            pose["x"] = float(x)
-            pose["y"] = float(y)
-            pose["z"] = float(z)
-            step_number = int(step_number)
-            plan, fraction = ur5_gripper_interface.plan_cartesian_path(pose, step_number)
-            print "============ Press `Enter` to display a saved trajectory needs rviz (this will replay the Cartesian path)  ..."
-            raw_input()
-            ur5_gripper_interface.display_trajectory(plan)
-            print "============ Press `Enter` to execute a saved path ..."
-            raw_input()
-            ur5_gripper_interface.execute_plan(plan)
+            ur5_gripper_interface.cartesian_path()
         elif(mode == "set_factors"):
-            print "============ Enter velocity and acceleration scaling factors ..."
-            factor_inp = raw_input()
-            vf, ac = factor_inp.split(" ")
-            vf = float(vf)
-            ac = float(ac)
-            ur5_gripper_interface.set_velociy_acceleration_factors(vf, ac)
+            ur5_gripper_interface.set_velociy_acceleration_factors()
+        elif(mode == "control_gripper"):
+          ur5_gripper_interface.control_gripper()
         prev = mode
-
-
 
   except rospy.ROSInterruptException:
     return
