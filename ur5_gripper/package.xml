@@ -16,6 +16,7 @@
     <build_depend>roboticsgroup_gazebo_plugins</build_depend>
     <build_depend>gazebo_grasp_plugin</build_depend>
     <exec_depend>gazebo_ros</exec_depend>
+    <exec_depend>gripper_action_controller</exec_depend>
     <export>
         <gazebo_ros gazebo_model_path="${prefix}/world/models"/>
         <gazebo_ros gazebo_media_path="${prefix}/world/models"/>
