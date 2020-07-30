@@ -452,6 +452,9 @@ class UR5GripperPythonInteface(object):
       arm_group = self.arm_group
       arm_group.set_max_velocity_scaling_factor(velocity_factor)
       arm_group.set_max_acceleration_scaling_factor(acc_factor)
+      gripper_group = self.gripper_group
+      gripper_group.set_max_velocity_scaling_factor(velocity_factor)
+      gripper_group.set_max_acceleration_scaling_factor(acc_factor)      
 
   def cartesian_path(self):
     print 'Enter x y z step_number...'
@@ -472,7 +475,7 @@ class UR5GripperPythonInteface(object):
 
 def main():
   try:
-    print "============ Press `Enter` to begin the tutorial by setting up the moveit_commander ..."
+    print "============ Press `Enter` to begin moveit_commander ..."
     raw_input()
     ur5_gripper_interface = UR5GripperPythonInteface()
     prev = ""

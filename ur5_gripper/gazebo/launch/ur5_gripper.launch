@@ -29,7 +29,7 @@
   <rosparam file="$(find ur_gazebo)/controller/arm_controller_ur5.yaml" command="load"/>
   <node name="arm_controller_spawner" pkg="controller_manager" type="controller_manager" args="spawn arm_controller" respawn="false" output="screen"/>
   
-<!-- gripper controller-->>  
+<!-- gripper controller-->
   <rosparam file="$(find ur5_gripper)/gazebo/controller/robotiq140_gripper_controller.yaml" command="load"/>
   <node name="gripper_controller_spawner" pkg="controller_manager" type="controller_manager" 
         args="spawn gripper_controller" respawn="false" output="screen"/>
