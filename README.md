@@ -11,7 +11,7 @@ How to install:
     
         - git clone -b kinetic-devel https://github.com/ros-industrial/universal_robot.git
         - git clone https://github.com/JenniferBuehler/general-message-pkgs.git
-        - git clone https://github.com/ozgraslan/ur5_robotiq140_kinect.git
+        - git clone -b kinectv2-devel https://github.com/ozgraslan/ur5_robotiq140_kinect.git
         - git clone https://github.com/JenniferBuehler/common-sensors.git
         - git clone https://github.com/ozgraslan/gazebo-pkgs.git
         - git clone https://github.com/roboticsgroup/roboticsgroup_gazebo_plugins.git
