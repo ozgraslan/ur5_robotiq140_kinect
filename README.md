@@ -27,3 +27,5 @@ How to use:
     * Launch gazebo with robot: roslaunch ur5_gripper ur5_gripper.launch [limited:=true]
     * Launch moveit: roslaunch ur5_gripper_moveit_config ur5_gripper_moveit_planning_execution.launch sim:=true [limited:=true]
     * Launch rviz: roslaunch ur5_gripper_moveit_config moveit_rviz.launch config:=true
+
+ivar_chair model is taken from: https://github.com/clvrai/furniture
